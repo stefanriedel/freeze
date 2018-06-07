@@ -1,0 +1,167 @@
+#N canvas 0 28 1440 775 10;
+#X obj 516 707 dac~;
+#X msg 100 6 start;
+#X obj 164 135 readsf~;
+#X obj 244 151 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 37 147 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 166 10 open GuitarChord.wav;
+#X obj 67 705 dac~;
+#X obj 162 345 *~;
+#N canvas 0 23 1440 775 volume 0;
+#X obj 303 206 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 2540 1;
+#X obj 303 139 loadbang;
+#X msg 303 177 0.2;
+#X obj 303 369 line~;
+#X obj 303 344 pack 0 5;
+#X obj 303 418 outlet~;
+#X connect 0 0 4 0;
+#X connect 1 0 2 0;
+#X connect 2 0 0 0;
+#X connect 3 0 5 0;
+#X connect 4 0 3 0;
+#X coords 0 -1 1 1 20 140 2 300 200;
+#X restore 135 503 pd volume;
+#X obj 71 655 *~;
+#N canvas 0 38 1440 775 volume 0;
+#X obj 303 206 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 6350 1;
+#X obj 303 139 loadbang;
+#X obj 303 369 line~;
+#X obj 303 344 pack 0 5;
+#X obj 303 418 outlet~;
+#X msg 303 177 0.5;
+#X connect 0 0 3 0;
+#X connect 1 0 5 0;
+#X connect 2 0 4 0;
+#X connect 3 0 2 0;
+#X connect 5 0 0 0;
+#X coords 0 -1 1 1 20 140 2 300 200;
+#X restore 813 271 pd volume;
+#X obj 516 418 *~;
+#N canvas 916 132 450 300 linear_window 0;
+#X obj 86 150 line~;
+#X msg 87 88 1 100;
+#X obj 149 88 del 100;
+#X msg 149 117 0 100;
+#X obj 234 193 snapshot~;
+#X floatatom 234 220 0 0 0 0 - - -;
+#X obj 234 88 metro 100;
+#X obj 68 24 inlet;
+#X obj 86 193 outlet~;
+#X connect 0 0 4 0;
+#X connect 0 0 8 0;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 3 0 0 0;
+#X connect 4 0 5 0;
+#X connect 6 0 4 0;
+#X connect 7 0 1 0;
+#X connect 7 0 2 0;
+#X connect 7 0 6 0;
+#X restore 180 313 pd linear_window;
+#X obj 686 705 dac~;
+#X msg 341 10 open GuitarChord2.wav;
+#X obj 37 23 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 37 101 del 100;
+#X obj 630 353 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 517 600 rev3~ 100 100 1000 0;
+#X obj 691 598 rev3~ 100 100 1000 0;
+#X obj 516 497 lop~;
+#N canvas 846 113 450 300 freeze_switch 0;
+#X obj 85 27 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+;
+#X obj 134 27 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 72 64 sel 1 0;
+#X obj 142 63 sel 1 0;
+#X obj 101 4 inlet;
+#X obj 58 235 outlet;
+#X obj 168 234 outlet;
+#X obj 171 11 loadbang;
+#X floatatom 103 183 5 0 0 0 - - -, f 5;
+#X floatatom 161 182 5 0 0 0 - - -, f 5;
+#X floatatom 208 182 5 0 0 0 - - -, f 5;
+#X floatatom 58 182 5 0 0 0 - - -, f 5;
+#X msg 277 130 100;
+#X obj 105 120 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 161 119 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 205 121 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 61 122 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X connect 0 0 2 0;
+#X connect 1 0 3 0;
+#X connect 2 0 16 0;
+#X connect 2 1 13 0;
+#X connect 3 0 14 0;
+#X connect 3 1 15 0;
+#X connect 4 0 0 0;
+#X connect 4 0 1 0;
+#X connect 7 0 1 0;
+#X connect 7 0 12 0;
+#X connect 8 0 5 0;
+#X connect 9 0 6 0;
+#X connect 10 0 6 0;
+#X connect 11 0 5 0;
+#X connect 12 0 10 0;
+#X connect 12 0 8 0;
+#X connect 13 0 8 0;
+#X connect 14 0 9 0;
+#X connect 15 0 10 0;
+#X connect 16 0 11 0;
+#X restore 630 486 pd freeze_switch;
+#X obj 556 445 loadbang;
+#X obj 908 529 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 841 551 0;
+#X text 44 132 FREEZE BUTTON;
+#X text 842 271 FREEZE VOLUME;
+#X text 167 504 DIRECT VOLUME;
+#X text 197 338 WINDOW TO FEED SOUND SNIPPET INTO DELAY NETWORK;
+#X text 927 528 CLEAR DELAY LINES;
+#X text 853 599 TWO FEEDBACK DELAY NETWORKS;
+#X text 386 489 LOWPASS FILTERING;
+#X msg 556 474 200;
+#X text 566 22 HOW TO: 1) click "open GuitarChord.wav" 2) click start
+\, the program will automatically hit the FREEZE button for you 3)
+to freeze the other chord \, open it and hit start. 4) replace wav
+files with ADC inputs to use with real guitar input;
+#X connect 1 0 2 0;
+#X connect 1 0 15 0;
+#X connect 2 0 7 0;
+#X connect 2 0 9 0;
+#X connect 2 1 3 0;
+#X connect 4 0 12 0;
+#X connect 4 0 17 0;
+#X connect 5 0 2 0;
+#X connect 7 0 11 0;
+#X connect 8 0 9 1;
+#X connect 9 0 6 0;
+#X connect 9 0 6 1;
+#X connect 10 0 11 1;
+#X connect 11 0 20 0;
+#X connect 12 0 7 1;
+#X connect 14 0 2 0;
+#X connect 15 0 16 0;
+#X connect 16 0 4 0;
+#X connect 17 0 21 0;
+#X connect 18 0 0 0;
+#X connect 18 0 0 1;
+#X connect 19 0 13 0;
+#X connect 19 0 13 1;
+#X connect 20 0 18 0;
+#X connect 20 0 19 0;
+#X connect 21 0 18 3;
+#X connect 21 1 19 3;
+#X connect 22 0 32 0;
+#X connect 23 0 24 0;
+#X connect 24 0 19 3;
+#X connect 24 0 18 3;
+#X connect 32 0 20 1;
